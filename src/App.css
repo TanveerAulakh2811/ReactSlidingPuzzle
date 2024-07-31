@@ -1,38 +1,111 @@
+/* Container for the entire app */
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  font-family: 'Roboto', sans-serif; /* Updated font */
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f5f5, #e0f7fa); /* Gradient background */
+  min-height: 100vh; /* Ensure full screen height */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+/* Header styling */
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5rem; /* Increase font size */
+  letter-spacing: 2px; /* Add spacing between letters */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Container for the puzzle grid */
+.puzzle-container {
+  display: grid;
+  justify-content: center; /* Center the grid */
+  margin: 20px auto; /* Center the grid and add spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure content fits within rounded corners */
+}
+
+/* Styling for individual puzzle tiles */
+.puzzle-tile {
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 2px solid #fff; /* Border around tiles */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.puzzle-tile:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Styling for the empty tile */
+.empty-tile {
+  background-color: #e0e0e0; /* Background color for the empty tile */
+  border: 2px solid #fff;
+}
+
+/* Control buttons styling */
+.controls {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #00c6ff); /* Gradient button background */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin: 0 10px; /* Space between buttons */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow */
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #0099cc); /* Darker shade on hover */
+}
+
+button:active {
+  transform: scale(0.98); /* Slightly shrink button on click */
+}
+
+button:disabled {
+  background-color: #d6d6d6; /* Color for disabled buttons */
+  cursor: not-allowed;
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 600px) {
+  .puzzle-tile {
+    border-width: 1px;
   }
-  to {
-    transform: rotate(360deg);
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
   }
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+
+.full-image {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.full-image img {
+  max-width: 300px; /* Adjust as needed */
+  max-height: 300px; /* Adjust as needed */
 }
